@@ -5,6 +5,8 @@ import mongoose from 'mongoose';
 import authRoute from '../routes/auth'
 import bookRoute from '../routes/book'
 import cateRoute from '../routes/category'
+import ordersRoute from '../routes/orders'
+import orderDetailRoute from '../routes/order-detail'
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.use(express.json())
 app.use('/api',authRoute)
 app.use('/api',bookRoute)
 app.use('/api',cateRoute)
+app.use('/api',ordersRoute)
+app.use('/api',orderDetailRoute)
 // connnect database
 mongoose.connect('mongodb://localhost:27017/angular')
     .then(() => console.log("Kết nối db thành công"))

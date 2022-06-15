@@ -33,7 +33,6 @@ export const read = async (req, res) => {
             products
         })
     } catch (error) {
-
     }
 }
 export const remove = async (req, res) => {
@@ -45,11 +44,8 @@ export const remove = async (req, res) => {
     }
 }
 export const update = async (req, res) => {
-    const condition = { _id: req.params.id };
-    const document = req.body;
-    const options = { new: true }
     try {
-        const category = await Category.findOneAndUpdate(condition, document, options).exec();
+        const category = await Category.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }).exec();
         res.json(category)
     } catch (error) {
 
