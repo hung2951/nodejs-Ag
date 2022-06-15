@@ -18,6 +18,9 @@ const ordersSchema = mongoose.Schema({
         type:String,
         required:true
     },
+    money:{
+        type:Number,
+    }
 },{timestamps: true })
 
 

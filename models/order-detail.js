@@ -21,11 +21,11 @@ const orderDetailSchema = new Schema({
         type: String,
         required:true
     },
-    IdOrder: {
+    idOrder: {
         type: ObjectId,
         ref: "Orders"
     },
-    IdProduct: {
+    idProduct: {
         type: ObjectId,
         ref: "Product"
     },
