@@ -25,11 +25,27 @@ export const list = async (req,res)=>{
 
 export const read = async (req, res) => {
     try {
-        const IdOrder = await Order.findOne({ _id: req.params.id }).exec();
-        const orderDetail = await OrderDetail.find({IdOrder}).exec();
+        const idOrder = await Order.findOne({ _id: req.params.id }).exec();
+        const orderDetail = await OrderDetail.find({idOrder:idOrder}).exec();
         res.json({
-            IdOrder,
+            idOrder,
             orderDetail
         })
+    } catch (error) {}
+}
+
+export const update = async (req, res) => {
+    try {
+        const order = await Order.findOneAndUpdate({ _id: req.params.id },req.body,{new:true}).exec();
+        res.json({
+            order
+        })
+    } catch (error) {}
+}
+
+export const getOne = async (req, res) => {
+    try {
+        const product = await Order.findById(req.params.id);
+        res.json(product);
     } catch (error) {}
 }
