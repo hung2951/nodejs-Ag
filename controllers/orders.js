@@ -26,7 +26,7 @@ export const list = async (req,res)=>{
 export const read = async (req, res) => {
     try {
         const idOrder = await Order.findOne({ _id: req.params.id }).exec();
-        const orderDetail = await OrderDetail.find({idOrder:idOrder}).exec();
+        const orderDetail = await OrderDetail.find({idOrder}).exec();
         res.json({
             idOrder,
             orderDetail
